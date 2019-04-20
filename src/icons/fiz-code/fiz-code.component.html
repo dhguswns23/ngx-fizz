@@ -1,0 +1,20 @@
+<svg
+    [attr.height]="size"
+    [attr.width]="size"
+    [style.display]="isHide ? 'none' : 'inline-block'"
+    #vector
+    viewBox="0 0 40 40"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+    <g fill="none"
+       fill-rule="evenodd"
+       stroke="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       [attr.stroke]="strokeColor"
+       [attr.stroke-width]="strokeWidth">
+        <path #centerBar d="m23,10l-6,21" class="st0" id="Path-8" [attr.stroke]="barColor"></path>
+        <path #leftTri d="m14.5,26.5c-2.8,-1.2 -5.6,-2.3 -8.4,-3.5c-1.8,-0.8 -2.3,-3 -0.3,-3.9c1.4,-0.7 2.9,-1.2 4.3,-1.8c1.5,-0.6 2.9,-1.2 4.4,-1.8"></path>
+        <path #rightTri d="m26.5,15.5c2.8,1.2 5.6,2.3 8.4,3.5c1.8,0.8 2.3,3 0.3,3.9c-1.4,0.7 -2.9,1.2 -4.3,1.8c-1.5,0.6 -2.9,1.2 -4.4,1.8"></path>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg
+    #vector
+    [attr.height]="size"
+    [attr.width]="size"
+    [style.display]="isHide ? 'none' : 'inline-block'"
+    version="1.1"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg">
+    <g [attr.stroke-width]="strokeWidth"
+       [attr.stroke]="strokeColor"
+       fill="none"
+       fill-rule="evenodd"
+       stroke="none"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+        <path #longLine stroke-linecap="round" d="m10.948797,24l17,0"></path>
+        <path #shortLine stroke-linecap="round" d="m11,19l12,0"></path>
+        <g #plus>
+            <path d="m24,14l8,0"></path>
+            <path d="m28,10l0,8"></path>
+        </g>
+        <path #paper stroke-linecap="round" d="m31.499999,20l0.914214,0.914214c0.375072,0.375072 0.585786,0.88378 0.585786,1.414213l0,6.671573c0,1.10457 -0.89543,2 -2,2l-22,0c-1.104569,0 -2,-0.89543 -2,-2l0,-16c0,-1.104569 0.895431,-2 2,-2l10.394449,0c0.39485,0 0.780865,0.116876 1.1094,0.335899l0.996151,0.664101"></path>
+    </g>
+</svg>

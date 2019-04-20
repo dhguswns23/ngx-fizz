@@ -1,0 +1,22 @@
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+ <title>New</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="New">
+   <g stroke-width="2" stroke="#979797" id="new">
+    <path stroke-linecap="round" id="Path-5" d="m10.948797,24l17,0"/>
+    <path stroke-linecap="round" id="Path-5" d="m11,19l12,0"/>
+    <path id="Path-6" d="m24,14l8,0"/>
+    <path id="Path-6" d="m28,10l0,8"/>
+    <path stroke-linecap="round" id="Rectangle" d="m31.499999,20l0.914214,0.914214c0.375072,0.375072 0.585786,0.88378 0.585786,1.414213l0,6.671573c0,1.10457 -0.89543,2 -2,2l-22,0c-1.104569,0 -2,-0.89543 -2,-2l0,-16c0,-1.104569 0.895431,-2 2,-2l10.394449,0c0.39485,0 0.780865,0.116876 1.1094,0.335899l0.996151,0.664101"/>
+   </g>
+  </g>
+ </g>
+</svg>

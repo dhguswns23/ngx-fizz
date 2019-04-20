@@ -1,0 +1,23 @@
+<svg width="366" height="191" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+ <title>fizz fold</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="fizz-fold">
+   <g stroke-width="6" stroke="#979797" id="Group">
+    <path id="Oval" d="m133,56c0,-5.524862 4.475138,-10 10,-10c5.524862,0 10,4.475138 10,10c0,5.524862 -4.475138,10 -10,10c-5.524862,0 -10,-4.475138 -10,-10z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+    <path id="Oval" d="m133,96c0,-5.524862 4.475138,-10 10,-10c5.524862,0 10,4.475138 10,10c0,5.524862 -4.475138,10 -10,10c-5.524862,0 -10,-4.475138 -10,-10z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+    <path id="Oval" d="m173,96c0,-5.524862 4.475138,-10 10,-10c5.524862,0 10,4.475138 10,10c0,5.524862 -4.475138,10 -10,10c-5.524862,0 -10,-4.475138 -10,-10z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+    <path id="Oval" d="m173,56c0,-5.524862 4.475138,-10 10,-10c5.524862,0 10,4.475138 10,10c0,5.524862 -4.475138,10 -10,10c-5.524862,0 -10,-4.475138 -10,-10z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+    <path id="Oval" d="m213,56c0,-5.524862 4.475138,-10 10,-10c5.524862,0 10,4.475138 10,10c0,5.524862 -4.475138,10 -10,10c-5.524862,0 -10,-4.475138 -10,-10z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+    <path id="Oval" d="m133,136c0,-5.524862 4.475138,-10 10,-10c5.524862,0 10,4.475138 10,10c0,5.524862 -4.475138,10 -10,10c-5.524862,0 -10,-4.475138 -10,-10z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+   </g>
+  </g>
+ </g>
+</svg>

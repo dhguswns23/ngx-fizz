@@ -1,0 +1,21 @@
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+ <title>Trash</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="Trash">
+   <g stroke="#979797" id="trash">
+    <path stroke-width="2" id="Rectangle-12" d="m13.190066,12c-0.030225,0 -0.060435,0.00137 -0.090536,0.004107c-0.550017,0.050001 -0.955359,0.536412 -0.905358,1.086429l1.636364,18c0.046825,0.515079 0.47869,0.909464 0.995893,0.909464l10.347142,0c0.517203,0 0.949068,-0.394385 0.995893,-0.909464l1.636364,-18c0.002736,-0.030101 0.004106,-0.060311 0.004106,-0.090536c0,-0.552285 -0.447715,-1 -1,-1l-13.619868,0z"/>
+    <path stroke-linecap="round" stroke-width="2" id="Line" d="m22,17l0,9.5"/>
+    <path stroke-linecap="round" stroke-width="2" id="Line" d="m18,17l0,9.5"/>
+    <path stroke-linejoin="round" stroke-linecap="round" fill="#979797" id="Path-10" d="m11,10l18,0l0,0c0,-0.552285 -0.447715,-1 -1,-1l-5,0l-1,-1l-4,0l-1,1l-5,0c-0.552285,0 -1,0.447715 -1,1z"/>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg
+    #vector
+    [attr.height]="size"
+    [attr.width]="size"
+    [style.display]="isHide ? 'none' : 'inline-block'"
+    version="1.1"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg">
+    <g [attr.stroke-width]="strokeWidth"
+       [attr.stroke]="strokeColor"
+       fill="none"
+       fill-rule="evenodd"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+        <path #body stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15,34.5h10
+	c2.2,0,4-1.8,4-4v-12H11v12C11,32.7,12.8,34.5,15,34.5z"></path>
+        <path #head fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.5,15.5V13
+	c0-2.5,2-4.5,4.5-4.5h2c2.5,0,4.5,2,4.5,4.5v5.5"></path>
+        <circle #hole stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="20" cy="25.5" r="3"></circle>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+ <title>User</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="User">
+   <g stroke-width="2" stroke="#979797" id="user">
+    <path id="Rectangle-4" d="m5.838281,32l28.323438,0c0.628653,-4.110487 -0.562868,-6.720245 -3.575522,-8.089634c-5.237075,-2.380488 -15.935319,-2.380488 -21.172394,0c-3.012654,1.369389 -4.204175,3.979147 -3.575522,8.089634z"/>
+    <path id="Oval-2" d="m14,13c0,-3.314917 2.685083,-6 6,-6c3.314917,0 6,2.685083 6,6c0,3.314917 -2.685083,6 -6,6c-3.314917,0 -6,-2.685083 -6,-6z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="null" stroke="null" fill-opacity="null" fill="null"/>
+   </g>
+  </g>
+ </g>
+</svg>
