@@ -1,25 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture } from '@angular/core/testing';
+import { testIcon } from '../../test/icon';
 import { FizCheckComponent } from './fiz-check.component';
 
 describe('FizCheckComponent', () => {
-  let component: FizCheckComponent;
-  let fixture: ComponentFixture<FizCheckComponent>;
+    testIcon(FizCheckComponent, (creationFn) => {
+        let component: FizCheckComponent;
+        let fixture: ComponentFixture<FizCheckComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FizCheckComponent ]
-    })
-    .compileComponents();
-  }));
+        beforeEach(async () => {
+            fixture = creationFn(FizCheckComponent, false);
+            component = fixture.componentInstance;
+            fixture.detectChanges();
+        });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FizCheckComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        it(`inner additional test`, () => {
+            console.log(component);
+            expect(component).toBe(component);
+        });
+    });
 });

@@ -14,7 +14,7 @@ import {
     styleUrls: ['./fiz-check.component.scss'],
 })
 export class FizCheckComponent extends ShowHideIcon {
-    @ViewChild('checker') public checker: ElementRef;
+    @ViewChild('vector') public vector: ElementRef;
     @ViewChild('polygon') public polygon: ElementRef;
 
     private pathStep = [
@@ -35,7 +35,7 @@ export class FizCheckComponent extends ShowHideIcon {
             targets: polygon.nativeElement,
             points: pathStep,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -47,6 +47,6 @@ export class FizCheckComponent extends ShowHideIcon {
             targets: polygon.nativeElement,
             points: reverseStep,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 }
