@@ -50,7 +50,7 @@ export class FizUserComponent extends ShowHideIcon implements OnInit {
             scale: 1,
             transformOrigin: '19.5px 11.5px 0',
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -73,7 +73,7 @@ export class FizUserComponent extends ShowHideIcon implements OnInit {
             opacity: 0,
             translateY: 20,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
 }

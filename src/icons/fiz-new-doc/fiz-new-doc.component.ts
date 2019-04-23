@@ -50,7 +50,7 @@ export class FizNewDocComponent extends ShowHideIcon implements OnInit {
             rotate: 360,
             opacity: 1,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -76,7 +76,7 @@ export class FizNewDocComponent extends ShowHideIcon implements OnInit {
             strokeDashoffset: [0, _anime.setDashoffset],
             opacity: 0,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
 }

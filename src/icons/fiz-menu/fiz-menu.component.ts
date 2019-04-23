@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseIcon } from '../../core';
 
 @Component({
-  selector: 'lib-fiz-menu',
+  selector: 'fiz-menu',
   templateUrl: './fiz-menu.component.html',
   styleUrls: ['./fiz-menu.component.css']
 })
-export class FizMenuComponent implements OnInit {
+export class FizMenuComponent extends BaseIcon implements OnInit {
 
   constructor() { }
 

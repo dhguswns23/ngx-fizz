@@ -37,7 +37,7 @@ export class FizCogComponent extends ShowHideIcon implements OnInit {
             targets: outerCircle.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
 
     }
 
@@ -52,7 +52,7 @@ export class FizCogComponent extends ShowHideIcon implements OnInit {
             targets: innerCircle.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
 
     }
 }

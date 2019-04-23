@@ -39,7 +39,7 @@ export class FizCodeComponent extends ShowHideIcon implements OnInit {
             targets: centerBar.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -53,6 +53,6 @@ export class FizCodeComponent extends ShowHideIcon implements OnInit {
             targets: [leftTri.nativeElement, rightTri.nativeElement],
             strokeDashoffset: [0, _anime.setDashoffset],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 }

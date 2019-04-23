@@ -87,7 +87,7 @@ export class FizLockerComponent extends ShowHideIcon implements OnInit, OnChange
             strokeDashoffset: [_anime.setDashoffset, 0],
             opacity: 1,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -115,6 +115,6 @@ export class FizLockerComponent extends ShowHideIcon implements OnInit, OnChange
             strokeDashoffset: [0, _anime.setDashoffset],
             opacity: 0,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 }

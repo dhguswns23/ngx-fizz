@@ -44,7 +44,7 @@ export class FizImageComponent extends ShowHideIcon implements OnInit {
             transformOrigin: '13px 14px 0',
             scale: 1,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -64,7 +64,7 @@ export class FizImageComponent extends ShowHideIcon implements OnInit {
             targets: frame.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
 }

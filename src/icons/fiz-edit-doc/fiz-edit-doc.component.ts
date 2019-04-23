@@ -43,7 +43,7 @@ export class FizEditDocComponent extends ShowHideIcon implements OnInit {
             targets: line.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
 
@@ -64,7 +64,7 @@ export class FizEditDocComponent extends ShowHideIcon implements OnInit {
             targets: paper.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
         }, 0);
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
 }

@@ -44,7 +44,7 @@ export class FizCrossComponent extends ShowHideIcon {
             opacity: 1,
             delay: 200,
         }, `-=${duration}`);
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -64,7 +64,7 @@ export class FizCrossComponent extends ShowHideIcon {
             opacity: 0,
             delay: 200,
         }, `-=${duration}`);
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
     public rotate() {

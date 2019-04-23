@@ -33,7 +33,7 @@ export class FizHeartComponent extends ShowHideIcon implements OnInit {
             targets: heart.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -43,7 +43,7 @@ export class FizHeartComponent extends ShowHideIcon implements OnInit {
             targets: heart.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
     public pulse(autoplay = true, duration: number = 100, count: number = 1) {

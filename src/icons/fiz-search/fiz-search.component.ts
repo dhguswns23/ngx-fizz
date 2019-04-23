@@ -59,7 +59,7 @@ export class FizSearchComponent extends ShowHideIcon implements OnInit {
             opacity: 1,
             rotate: 360,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -89,6 +89,6 @@ export class FizSearchComponent extends ShowHideIcon implements OnInit {
             translateY: 15,
             opacity: 1,
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 }

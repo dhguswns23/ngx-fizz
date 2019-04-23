@@ -41,7 +41,7 @@ export class FizOutComponent extends ShowHideIcon implements OnInit {
             opacity: 1,
             translateX: '0',
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration) {
@@ -60,7 +60,7 @@ export class FizOutComponent extends ShowHideIcon implements OnInit {
             targets: door.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
 }
