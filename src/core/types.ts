@@ -24,11 +24,9 @@ export interface AnimCallbackData {
 }
 
 export class CallbackData {
-    public state: string;
-
-    constructor(state: string) {
-        this.state = state;
-    }
+    constructor(
+        public state: string,
+    ) {}
 }
 
 export class UpdateData extends CallbackData {
@@ -49,6 +47,7 @@ export abstract class BaseIcon implements OnChanges {
     @Input() public duration = 500;
     @Input() public easing = 'easeInOutQuad';
 
+    @Output() public stateChange = new EventEmitter();
     @Output() public animationBegin = new EventEmitter();
     @Output() public animationComplete = new EventEmitter();
     @Output() public animating = new EventEmitter();
@@ -72,6 +71,7 @@ export abstract class BaseIcon implements OnChanges {
 
     public onBegin(state: string): (anim: AnimCallbackData) => void {
         return (anim: AnimCallbackData) => {
+            console.log('on begin');
             this.animationBegin.emit(new CallbackData(state));
         };
     }
@@ -91,7 +91,7 @@ export abstract class BaseIcon implements OnChanges {
     public bindCallback(state, callbackName = ['begin', 'update', 'complete']) {
         const callbacks = {};
         for (const name of callbackName) {
-            callbacks[name] = this[`on${StringUtls.capitalizeFirstLetter(name)}`].bind(this)(state);
+            callbacks[name] = this[`on${StringUtls.capitalizeFirstLetter(name)}`].bind(this)(state).bind(this);
         }
         return callbacks;
     }
@@ -119,7 +119,6 @@ export class ShowHideIcon extends BaseIcon {
     }
 
     public onBegin(state: string): (anim: AnimCallbackData) => void {
-
         return (anim: AnimCallbackData) => {
             if (state === ShowHideState.SHOW) {
                 this.isHide = false;
@@ -127,7 +126,6 @@ export class ShowHideIcon extends BaseIcon {
             this.animationBegin.emit(new CallbackData(state));
         };
     }
-
 
     public onComplete(state: string): (anim: AnimCallbackData) => void {
         return (anim: AnimCallbackData) => {
@@ -151,21 +149,20 @@ export class ShowHideIcon extends BaseIcon {
         return this.nextTimeline;
     }
 
-    public endAnimation(timeline: FizTimeline): Promise<anime.Animation> {
+    public endAnimation(state: ShowHideState, timeline: FizTimeline): Promise<anime.Animation> {
+        this.stateChange.emit(state);
         return timeline.injectEnd();
     }
 
-
     protected _show(duration: number): Promise<anime.Animation> {
-        const { _anime, target, easing } = this;
+        const { _anime, target } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
 
         nextTimeline.add({
             targets: target.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
-            ...this.bindCallback(ShowHideState.SHOW),
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(duration: number): Promise<anime.Animation> {
@@ -175,13 +172,12 @@ export class ShowHideIcon extends BaseIcon {
         nextTimeline.add({
             targets: target.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
-            ...this.bindCallback(ShowHideState.HIDE),
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
     public show() {
-       return this._show(this.duration);
+        return this._show(this.duration);
     }
 
     public hide() {
@@ -248,23 +244,21 @@ export abstract class ChevronIcon extends ShowHideIcon {
         nextTimeline.add({
             targets: polygon.nativeElement,
             points: pathStep,
-            ...this.bindCallback(ShowHideState.SHOW),
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
     protected _hide(): Promise<anime.Animation> {
         const { polygon, pathStep } = this;
 
         const reverseStep = Object.assign([], pathStep).reverse();
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
 
         nextTimeline.add({
             targets: polygon.nativeElement,
             points: reverseStep,
-            ...this.bindCallback(ShowHideState.HIDE),
         });
-        return this.endAnimation(nextTimeline);
+        return this.endAnimation(ShowHideState.HIDE, nextTimeline);
     }
 
     public pulse() {
