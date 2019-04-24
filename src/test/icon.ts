@@ -5,6 +5,7 @@ import {
 } from '@angular/core/testing';
 import {
     BaseIcon,
+    ShowHideIcon,
     ShowHideState,
 } from '../core';
 
@@ -23,14 +24,14 @@ export const initiateTest = (icon, configure: boolean = true) => {
     return fixture;
 };
 
-export const testIcon = (
+export const testIcon = <IconType extends ShowHideIcon> (
     icon: typeof BaseIcon,
     additionalTest?: (creationFn: InitiationFnType) => void,
     creationFn?: InitiationFnType,
 ) => {
     describe('General Icon Test', () => {
-        let component: icon;
-        let fixture: ComponentFixture<icon>;
+        let component: IconType;
+        let fixture: ComponentFixture<IconType>;
 
         creationFn = creationFn ? creationFn : initiateTest;
 
@@ -90,13 +91,38 @@ export const testIcon = (
             expect(component.stateChange.emit).toHaveBeenCalledWith(ShowHideState.SHOW);
         });
 
-        // additionalTest(component, fixture);
+        it('should \'immediateHide\' emit stateChange', () => {
+            spyOn(component.stateChange, 'emit');
+            component.immediateHide();
+            expect(component.stateChange.emit).toHaveBeenCalledWith(ShowHideState.HIDE);
+        });
 
+        it('should \'immediateShow\' emit stateChange', () => {
+            spyOn(component.stateChange, 'emit');
+            component.immediateShow();
+            expect(component.stateChange.emit).toHaveBeenCalledWith(ShowHideState.SHOW);
+        });
+
+        it('should \'strokeWidth\' change svg\'s strokeWidth.', () => {
+            const width = 3;
+            component.strokeWidth = width;
+            fixture.detectChanges();
+            const appliedWidth = (component.vector.nativeElement.childNodes[0] as Element).getAttribute('stroke-width');
+            expect(appliedWidth).toBe(width.toString());
+        });
+
+        it('should \'strokeWidth\' change svg\'s strokeWidth.', () => {
+            const color = '#ccc';
+            component.strokeColor = color;
+            fixture.detectChanges();
+            const appliedColor = (component.vector.nativeElement.childNodes[0] as Element).getAttribute('stroke');
+            expect(appliedColor).toBe(color);
+        });
     });
     if (additionalTest) {
         describe('Additional Icon Test', () => {
-            let component: icon;
-            let fixture: ComponentFixture<icon>;
+            let component: IconType;
+            let fixture: ComponentFixture<IconType>;
 
             creationFn = creationFn ? creationFn : initiateTest;
 
