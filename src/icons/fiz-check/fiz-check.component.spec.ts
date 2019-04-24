@@ -3,7 +3,7 @@ import { testIcon } from '../../test/icon';
 import { FizCheckComponent } from './fiz-check.component';
 
 describe('FizCheckComponent', () => {
-    testIcon(FizCheckComponent, (creationFn) => {
+    testIcon<FizCheckComponent>(FizCheckComponent, (creationFn) => {
         let component: FizCheckComponent;
         let fixture: ComponentFixture<FizCheckComponent>;
 
