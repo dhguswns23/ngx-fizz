@@ -33,7 +33,7 @@ export class FizUserComponent extends ShowHideIcon implements OnInit {
     protected _show(duration) {
         const { body, head } = this;
 
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         body.nativeElement.style.opacity = 0;
         body.nativeElement.style.transform = 'translateY(20px)';
@@ -56,7 +56,7 @@ export class FizUserComponent extends ShowHideIcon implements OnInit {
     protected _hide(duration) {
         const { body, head } = this;
 
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         body.nativeElement.style.opacity = 1;
         body.nativeElement.style.transform = 'translateY(0px)';

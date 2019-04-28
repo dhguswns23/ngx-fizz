@@ -31,7 +31,7 @@ export class FizCodeComponent extends ShowHideIcon implements OnInit {
 
     protected _show(duration) {
         const { _anime, leftTri, rightTri, centerBar } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
         nextTimeline.add({
             targets: [leftTri.nativeElement, rightTri.nativeElement],
             strokeDashoffset: [_anime.setDashoffset, 0],
@@ -44,7 +44,7 @@ export class FizCodeComponent extends ShowHideIcon implements OnInit {
 
     protected _hide(duration) {
         const { _anime, leftTri, rightTri, centerBar } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         nextTimeline.add({
             targets: centerBar.nativeElement,

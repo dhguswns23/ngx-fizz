@@ -30,7 +30,7 @@ export class FizCrossComponent extends ShowHideIcon {
 
     public _show(duration) {
         const { path1, path2 } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         nextTimeline.add({
             targets: path1.nativeElement,
@@ -49,7 +49,7 @@ export class FizCrossComponent extends ShowHideIcon {
 
     protected _hide(duration) {
         const { path1, path2 } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         nextTimeline.add({
             targets: path1.nativeElement,

@@ -28,7 +28,7 @@ export class FizImageComponent extends ShowHideIcon implements OnInit {
 
     protected _show(duration) {
         const { _anime, frame, sun, mountain } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         sun.nativeElement.style.transform = 'scale(0)';
 
@@ -49,7 +49,7 @@ export class FizImageComponent extends ShowHideIcon implements OnInit {
 
     protected _hide(duration) {
         const { _anime, frame, sun, mountain } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         sun.nativeElement.style.transform = 'scale(1)';
 

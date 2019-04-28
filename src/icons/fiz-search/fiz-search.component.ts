@@ -29,7 +29,7 @@ export class FizSearchComponent extends ShowHideIcon implements OnInit {
 
     protected _show(duration) {
         const { glass, handle, reflectLine, reflectCircle } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         handle.nativeElement.style.transform = 'translateX(15px)';
         handle.nativeElement.style.transform = 'translateY(15px)';
@@ -64,7 +64,7 @@ export class FizSearchComponent extends ShowHideIcon implements OnInit {
 
     protected _hide(duration) {
         const { glass, handle, reflectCircle, reflectLine } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         handle.nativeElement.style.transform = 'translate(0, 0)';
 

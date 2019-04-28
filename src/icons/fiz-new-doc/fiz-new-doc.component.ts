@@ -29,7 +29,7 @@ export class FizNewDocComponent extends ShowHideIcon implements OnInit {
 
     protected _show(duration) {
         const { _anime, shortLine, longLine, plus, paper } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         paper.nativeElement.style.opacity = 0;
         shortLine.nativeElement.style.opacity = 0;
@@ -55,7 +55,7 @@ export class FizNewDocComponent extends ShowHideIcon implements OnInit {
 
     protected _hide(duration) {
         const { _anime, shortLine, longLine, plus, paper } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         paper.nativeElement.style.opacity = 1;
         shortLine.nativeElement.style.opacity = 1;

@@ -59,7 +59,7 @@ export class FizTrashBinComponent extends ShowHideIcon implements OnInit, OnChan
 
     protected _show(duration) {
         const { _anime, body, lid, line1, line2, line3 } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         body.nativeElement.style.opacity = 0;
         body.nativeElement.style.lid = 0;
@@ -85,7 +85,7 @@ export class FizTrashBinComponent extends ShowHideIcon implements OnInit, OnChan
 
     protected _hide(duration) {
         const { _anime, body, lid, line1, line2, line3 } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         body.nativeElement.style.opacity = 1;
         body.nativeElement.style.lid = 1;

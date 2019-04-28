@@ -65,7 +65,7 @@ export class FizLockerComponent extends ShowHideIcon implements OnInit, OnChange
 
     protected _show(duration) {
         const { _anime, body, head, hole } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
         body.nativeElement.style.opacity = 0;
 
         hole.nativeElement.style.opacity = 0;
@@ -92,7 +92,7 @@ export class FizLockerComponent extends ShowHideIcon implements OnInit, OnChange
 
     protected _hide(duration) {
         const { _anime, body, head, hole } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         body.nativeElement.style.opacity = 1;
 

@@ -28,7 +28,7 @@ export class FizCogComponent extends ShowHideIcon implements OnInit {
 
     protected _show(duration) {
         const { _anime, innerCircle, outerCircle } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         nextTimeline.add({
             targets: innerCircle.nativeElement,
@@ -43,7 +43,7 @@ export class FizCogComponent extends ShowHideIcon implements OnInit {
 
     protected _hide(duration) {
         const { _anime, innerCircle, outerCircle } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         nextTimeline.add({
             targets: outerCircle.nativeElement,

@@ -29,7 +29,7 @@ export class FizCheckComponent extends ShowHideIcon {
 
     protected _show(duration) {
         const { polygon, pathStep } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         nextTimeline.add({
             targets: polygon.nativeElement,
@@ -41,7 +41,7 @@ export class FizCheckComponent extends ShowHideIcon {
     protected _hide(duration) {
         const { polygon, pathStep } = this;
         const reverseStep = Object.assign([], pathStep).reverse();
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         nextTimeline.add({
             targets: polygon.nativeElement,

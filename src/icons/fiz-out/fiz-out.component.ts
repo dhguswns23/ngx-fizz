@@ -28,7 +28,7 @@ export class FizOutComponent extends ShowHideIcon implements OnInit {
     protected _show(duration) {
         const { _anime, door, arrow } = this;
 
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         arrow.nativeElement.style.opacity = 0;
         arrow.nativeElement.style.transform = 'translateX(-10px)';
@@ -47,7 +47,7 @@ export class FizOutComponent extends ShowHideIcon implements OnInit {
     protected _hide(duration) {
         const { _anime, door, arrow } = this;
 
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         arrow.nativeElement.style.opacity = 1;
         arrow.nativeElement.style.transform = 'translateX(0px)';

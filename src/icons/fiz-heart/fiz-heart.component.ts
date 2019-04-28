@@ -28,7 +28,7 @@ export class FizHeartComponent extends ShowHideIcon implements OnInit {
 
     protected _show(duration) {
         const { _anime, heart } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
         nextTimeline.add({
             targets: heart.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
@@ -38,7 +38,7 @@ export class FizHeartComponent extends ShowHideIcon implements OnInit {
 
     protected _hide(duration) {
         const { _anime, vector, heart } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
         nextTimeline.add({
             targets: heart.nativeElement,
             strokeDashoffset: [0, _anime.setDashoffset],
