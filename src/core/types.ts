@@ -156,7 +156,7 @@ export class ShowHideIcon extends BaseIcon {
 
     protected _show(duration: number): Promise<anime.Animation> {
         const { _anime, target } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
         nextTimeline.add({
             targets: target.nativeElement,
@@ -167,7 +167,7 @@ export class ShowHideIcon extends BaseIcon {
 
     protected _hide(duration: number): Promise<anime.Animation> {
         const { _anime, target } = this;
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         nextTimeline.add({
             targets: target.nativeElement,
@@ -240,7 +240,7 @@ export abstract class ChevronIcon extends ShowHideIcon {
     protected _show(): Promise<anime.Animation> {
         const { polygon, pathStep } = this;
 
-        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
         nextTimeline.add({
             targets: polygon.nativeElement,
             points: pathStep,
@@ -252,7 +252,7 @@ export abstract class ChevronIcon extends ShowHideIcon {
         const { polygon, pathStep } = this;
 
         const reverseStep = Object.assign([], pathStep).reverse();
-        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, this.duration);
+        const nextTimeline = this.initNextTimeline(ShowHideState.HIDE, duration);
 
         nextTimeline.add({
             targets: polygon.nativeElement,
