@@ -14,7 +14,6 @@ describe('FizCheckComponent', () => {
         });
 
         it(`inner additional test`, () => {
-            console.log(component);
             expect(component).toBe(component);
         });
     });

@@ -43,8 +43,8 @@ export class FizFlowFunction<T> {
         return (this._comp as T);
     }
 
-    public get bindFunc(): (...args: any[]) => any {
-        return this._comp[this.funcName].bind(this._comp);
+    public get bindedFunc(): (...args: any[]) => any {
+        return this.comp[this.funcName].bind(this._comp);
     }
 
     public call(): Promise<Animation> {
@@ -53,7 +53,7 @@ export class FizFlowFunction<T> {
                 `${this.comp.constructor.name} has no function named '${this.funcName}'.`
             );
         }
-        return this.bindFunc();
+        return this.bindedFunc();
     }
 }
 
@@ -78,7 +78,7 @@ export class FizFlow {
                 );
             }
             const nextPromise = () => {
-                const _prom = func.bindFunc;
+                const _prom = func.bindedFunc;
                 return _prom;
             };
             next = next.then(nextPromise());

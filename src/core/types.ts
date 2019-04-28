@@ -71,7 +71,6 @@ export abstract class BaseIcon implements OnChanges {
 
     public onBegin(state: string): (anim: AnimCallbackData) => void {
         return (anim: AnimCallbackData) => {
-            console.log('on begin');
             this.animationBegin.emit(new CallbackData(state));
         };
     }
@@ -237,7 +236,7 @@ export abstract class ChevronIcon extends ShowHideIcon {
         };
     }
 
-    protected _show(): Promise<anime.Animation> {
+    protected _show(duration): Promise<anime.Animation> {
         const { polygon, pathStep } = this;
 
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
@@ -248,7 +247,7 @@ export abstract class ChevronIcon extends ShowHideIcon {
         return this.endAnimation(ShowHideState.SHOW, nextTimeline);
     }
 
-    protected _hide(): Promise<anime.Animation> {
+    protected _hide(duration): Promise<anime.Animation> {
         const { polygon, pathStep } = this;
 
         const reverseStep = Object.assign([], pathStep).reverse();
