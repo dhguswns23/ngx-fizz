@@ -9,7 +9,7 @@ import {
     ShowHideState,
 } from '../core';
 
-export type InitiationFnType = (iconType: typeof BaseIcon, configure?: boolean) => void;
+export type InitiationFnType = (iconType: typeof BaseIcon, configure?: boolean) => any;
 
 export const initiateTest = (icon, configure: boolean = true) => {
     if (configure) {
@@ -19,7 +19,6 @@ export const initiateTest = (icon, configure: boolean = true) => {
     }
 
     const fixture = TestBed.createComponent(icon);
-    const component = fixture.componentInstance;
     fixture.detectChanges();
     return fixture;
 };
