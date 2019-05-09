@@ -1,8 +1,10 @@
 import {
-    async,
     ComponentFixture,
+    fakeAsync,
     TestBed,
+    tick,
 } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import {
     BaseIcon,
     ShowHideIcon,
@@ -23,7 +25,7 @@ export const initiateTest = (icon, configure: boolean = true) => {
     return fixture;
 };
 
-export const testIcon = <IconType extends ShowHideIcon> (
+export const testIcon = <IconType extends ShowHideIcon>(
     icon: typeof BaseIcon,
     additionalTest?: (creationFn: InitiationFnType) => void,
     creationFn?: InitiationFnType,
@@ -110,13 +112,57 @@ export const testIcon = <IconType extends ShowHideIcon> (
             expect(appliedWidth).toBe(width.toString());
         });
 
-        it('should \'strokeWidth\' change svg\'s strokeWidth.', () => {
+        it('should \'strokeWidth\' change svg\'s strokeColor.', () => {
             const color = '#ccc';
             component.strokeColor = color;
             fixture.detectChanges();
             const appliedColor = (component.vector.nativeElement.childNodes[0] as Element).getAttribute('stroke');
             expect(appliedColor).toBe(color);
         });
+
+        const customEventList = [{
+            eventName: 'click',
+            emitterName: 'componentClick',
+        }, {
+            eventName: 'mouseenter',
+            emitterName: 'componentMouseEnter',
+        }, {
+            eventName: 'mouseover',
+            emitterName: 'componentMouseOver',
+        }, {
+            eventName: 'mousemove',
+            emitterName: 'componentMouseMove',
+        }, {
+            eventName: 'mouseleave',
+            emitterName: 'componentMouseLeave',
+        }, {
+            eventName: 'mouseup',
+            emitterName: 'componentMouseUp',
+        }, {
+            eventName: 'mousedown',
+            emitterName: 'componentMouseDown',
+        }];
+
+        for (const eventDef of customEventList) {
+            it(`should ${eventDef.eventName} event emit fiz custom ${eventDef.emitterName} event with its own component.`,
+                fakeAsync(() => {
+                    spyOn(component[eventDef.emitterName], 'emit');
+                    const elem = fixture.debugElement.query(By.css('svg'));
+                    const event = new MouseEvent(eventDef.eventName, {
+                        view: window,
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                    elem.nativeElement.dispatchEvent(event);
+                    // elem.triggerEventHandler('click', null);
+                    tick();
+                    fixture.detectChanges();
+                    expect(component[eventDef.emitterName].emit).toHaveBeenCalledWith({ component, event });
+                }));
+
+        }
+        // it(`should click event pass its own pointer and angular event`, () => {
+        // });
     });
     if (additionalTest) {
         describe('Additional Icon Test', () => {
