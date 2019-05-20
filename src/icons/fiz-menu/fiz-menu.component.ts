@@ -8,7 +8,9 @@ import { BaseIcon } from '../../core';
 })
 export class FizMenuComponent extends BaseIcon implements OnInit {
 
-  constructor() { }
+  constructor() {
+      super();
+  }
 
   ngOnInit() {
   }
