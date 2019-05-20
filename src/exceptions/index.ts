@@ -22,3 +22,10 @@ export class CantCallableError extends Error {
     }
 }
 
+export class FizFlowError extends Error {
+    constructor(msg: string) {
+        super(msg);
+        this.name = 'FizFlowError';
+        Object.setPrototypeOf(this, FizFlowError.prototype);
+    }
+}
