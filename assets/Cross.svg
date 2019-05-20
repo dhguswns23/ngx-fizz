@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="Cross" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-        <g transform="translate(10.000000, 10.000000)" id="Path-9" stroke="#979797" stroke-width="2">
-            <path d="M0.118339299,0.42385701 L19.9173292,20.2228469"></path>
-            <path d="M0.118339299,20.2228469 L19.9173292,0.42385701"></path>
-        </g>
-    </g>
-</svg>
