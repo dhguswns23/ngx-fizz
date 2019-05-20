@@ -8,14 +8,18 @@ import {
     ViewChild,
 } from '@angular/core';
 import anime from 'animejs';
-import { animatePulse } from '../animations';
-import { ShowHideState } from '../core/states';
+import {
+    AVAILABLE_STATE,
+    ETCState,
+    ShowHideState,
+} from '../core/states';
 import {
     NotAvailableStateError,
     NotSupportedMethodError,
 } from '../exceptions';
 import { FizTimeline } from '../timeline';
-import { StringUtls } from '../utils/string.utls';
+import { EnumUtils } from '../utils/enum.util';
+import { StringUtils } from '../utils/string.utils';
 
 export interface AnimCallbackData {
     began: boolean;
@@ -39,6 +43,8 @@ export class UpdateData extends CallbackData {
 }
 
 export abstract class BaseIcon implements OnChanges {
+    @ViewChild('vector') public vector: ElementRef;
+
     @Input() public strokeColor = '#777';
     @Input() public fillColor: string;
     @Input() public strokeWidth = 1.5;
@@ -51,6 +57,15 @@ export abstract class BaseIcon implements OnChanges {
     @Output() public animationBegin = new EventEmitter();
     @Output() public animationComplete = new EventEmitter();
     @Output() public animating = new EventEmitter();
+
+    @Output() public componentClick = new EventEmitter();
+    @Output() public componentMouseDown = new EventEmitter();
+    @Output() public componentMouseUp = new EventEmitter();
+    @Output() public componentMouseMove = new EventEmitter();
+    @Output() public componentMouseEnter = new EventEmitter();
+    @Output() public componentMouseLeave = new EventEmitter();
+    @Output() public componentMouseOver = new EventEmitter();
+
     public availableState: object;
 
     /* tslint:disable */
@@ -58,7 +73,7 @@ export abstract class BaseIcon implements OnChanges {
 
     public ngOnChanges(changes: SimpleChanges): void {
         const { availableState, state } = this;
-        const stateList = Object.values(availableState);
+        const stateList = EnumUtils.valueList(availableState);
         if (!stateList.includes(state)) {
             throw new NotAvailableStateError(
                 `Only [${stateList.join(', ')}] are available. But '${state}' is given.`,
@@ -67,6 +82,62 @@ export abstract class BaseIcon implements OnChanges {
         if (changes.hasOwnProperty('state')) {
             this[changes.state.currentValue]();
         }
+    }
+
+    public onClick(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentClick.emit(data);
+    }
+
+    public onMouseEnter(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentMouseEnter.emit(data);
+    }
+
+    public onMouseLeave(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentMouseLeave.emit(data);
+    }
+
+    public onMouseOver(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentMouseOver.emit(data);
+    }
+
+    public onMouseDown(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentMouseDown.emit(data);
+    }
+
+    public onMouseUp(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentMouseUp.emit(data);
+    }
+
+    public onMouseMove(event) {
+        const data = {
+            component: this,
+            event: event,
+        };
+        this.componentMouseMove.emit(data);
     }
 
     public onBegin(state: string): (anim: AnimCallbackData) => void {
@@ -90,7 +161,7 @@ export abstract class BaseIcon implements OnChanges {
     public bindCallback(state, callbackName = ['begin', 'update', 'complete']) {
         const callbacks = {};
         for (const name of callbackName) {
-            callbacks[name] = this[`on${StringUtls.capitalizeFirstLetter(name)}`].bind(this)(state).bind(this);
+            callbacks[name] = this[`on${StringUtils.capitalizeFirstLetter(name)}`].bind(this)(state).bind(this);
         }
         return callbacks;
     }
@@ -101,7 +172,6 @@ export abstract class BaseIcon implements OnChanges {
 }
 
 export class ShowHideIcon extends BaseIcon {
-    @ViewChild('vector') vector: ElementRef;
     @ViewChild('target') target: ElementRef;
 
     public isHide = false;
@@ -135,21 +205,30 @@ export class ShowHideIcon extends BaseIcon {
         };
     }
 
-    public initNextTimeline(status: ShowHideState, duration: number): FizTimeline {
+    public initNextTimeline(
+        status: AVAILABLE_STATE,
+        duration: number,
+        stopPrevious = true,
+    ): FizTimeline {
         const { easing } = this;
-        if (typeof this.nextTimeline !== 'undefined') {
+        if (typeof this.nextTimeline !== 'undefined' && stopPrevious) {
             this.nextTimeline.pause();
         }
-        this.nextTimeline = new FizTimeline(anime.timeline({
+        const nextTimeline = new FizTimeline(anime.timeline({
             duration, easing,
             ...this.bindCallback(status),
         }));
+        if (stopPrevious) {
+            this.nextTimeline = nextTimeline;
+        }
 
-        return this.nextTimeline;
+        return nextTimeline;
     }
 
-    public endAnimation(state: ShowHideState, timeline: FizTimeline): Promise<anime.Animation> {
-        this.stateChange.emit(state);
+    public endAnimation(state: AVAILABLE_STATE, timeline: FizTimeline): Promise<anime.Animation> {
+        if (EnumUtils.valueList(ShowHideState).includes(state)) {
+            this.stateChange.emit(state);
+        }
         return timeline.injectEnd();
     }
 
@@ -184,17 +263,25 @@ export class ShowHideIcon extends BaseIcon {
     }
 
     public immediateShow() {
-        return this._show(0);
+        return this._show(1);
     }
 
     public immediateHide() {
         return this._hide(0);
     }
 
-    public pulse(autoplay = true, duration: number = 100, count: number = 1) {
-        const { target, easing } = this;
-
-        animatePulse(target, duration, easing, count);
+    public pulse() {
+        const { vector } = this;
+        const nextTimeline = this.initNextTimeline(ETCState.PULSE, 300, false);
+        nextTimeline.add({
+            targets: vector.nativeElement,
+            keyframes: [{
+                scale: 1.2,
+            }, {
+                scale: 1,
+            }],
+        });
+        return this.endAnimation(ETCState.PULSE, nextTimeline);
     }
 }
 
@@ -240,6 +327,9 @@ export abstract class ChevronIcon extends ShowHideIcon {
         const { polygon, pathStep } = this;
 
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
+
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         nextTimeline.add({
             targets: polygon.nativeElement,
             points: pathStep,
@@ -258,9 +348,5 @@ export abstract class ChevronIcon extends ShowHideIcon {
             points: reverseStep,
         });
         return this.endAnimation(ShowHideState.HIDE, nextTimeline);
-    }
-
-    public pulse() {
-
     }
 }
