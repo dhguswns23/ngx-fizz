@@ -12,6 +12,9 @@
       "element",
       "fiz",
       "kebab-case"
-    ]
+    ],
+    "no-string-literal": false,
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "no-console": [true, "log", "error"]
   }
 }

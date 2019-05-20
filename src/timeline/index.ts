@@ -1,5 +1,8 @@
 import anime from 'animejs';
-import { CantCallableError } from '../exceptions';
+import {
+    CantCallableError,
+    FizFlowError,
+} from '../exceptions';
 
 export class FizFlowFunctionOptions {
     public delay?: number = 0;
@@ -43,13 +46,31 @@ export class FizTimeline {
     }
 }
 
-export class FizFlowFunction<T> {
+export interface FizFlowCallable {
+    bindedFunc: (...args: any[]) => any;
+    opt?: FizFlowFunctionOptions | object;
+}
+
+export class FizFlowPromise {
+    public bindedFunc;
+
+    constructor(
+        executor: (resolve: CallableFunction, reject: CallableFunction) => any,
+        public opt?: FizFlowFunctionOptions | object,
+    ) {
+        this.bindedFunc = () => new Promise(executor);
+    }
+}
+
+export class FizFlowFunction<T> implements FizFlowCallable {
     constructor(
         private _comp,
         public funcName: string,
         public opt?: FizFlowFunctionOptions | object,
     ) {
-
+        if (typeof _comp === 'undefined') {
+            throw new FizFlowError(`FizFlowFunction receives 'undefined'.`);
+        }
     }
 
     public get comp(): T {
@@ -57,7 +78,10 @@ export class FizFlowFunction<T> {
     }
 
     public get bindedFunc(): (...args: any[]) => any {
-        return this.comp[this.funcName].bind(this._comp);
+        if (typeof this._comp[this.funcName] === 'undefined') {
+            throw new FizFlowError(`${this._comp.constructor.name} doesn't have function named '${this.funcName}'.`);
+        }
+        return this._comp[this.funcName].bind(this._comp);
     }
 
     public call(): Promise<Animation> {
@@ -74,7 +98,7 @@ export class FizFlow {
     private stopMarked = false;
 
     constructor(
-        public funcs: Array<FizFlowFunction<any>>,
+        public funcs: Array<FizFlowCallable>,
         public opt?: FizFlowOptions | object,
     ) {
         if (typeof opt === 'undefined') {
@@ -92,6 +116,10 @@ export class FizFlow {
         this._run(defOpt, defOpt.repeat);
     }
 
+    private isFizFlowCallable(object: any): object is FizFlowCallable {
+        return 'bindedFunc' in object;
+    }
+
     private _run(defOpt: FizFlowOptions, count: number | string): void {
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -101,9 +129,9 @@ export class FizFlow {
         let next = promise;
 
         for (const func of this.funcs) {
-            if (!(func instanceof FizFlowFunction)) {
+            if (!this.isFizFlowCallable(func)) {
                 throw new CantCallableError(
-                    `FizFlow get an uninterpretable function. Please use 'FizFlowFunction.'`,
+                    `FizFlow get an uninterpretable function. Please use 'FizFlowFunction' or 'FizFlowPromise'.`,
                 );
             }
             const nextPromise = () => {
