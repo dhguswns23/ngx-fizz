@@ -7,6 +7,7 @@ import {
 import { By } from '@angular/platform-browser';
 import {
     BaseIcon,
+    ETCState,
     ShowHideIcon,
     ShowHideState,
 } from '../core';
@@ -46,7 +47,7 @@ export const testIcon = <IconType extends ShowHideIcon>(
             expect(component).toBeTruthy();
         });
 
-        const states = [ShowHideState.SHOW, ShowHideState.HIDE];
+        const states = [ShowHideState.SHOW, ShowHideState.HIDE, ETCState.PULSE];
 
         for (const state of states) {
             it(`should '${state}' be called`, () => {
@@ -161,8 +162,6 @@ export const testIcon = <IconType extends ShowHideIcon>(
                 }));
 
         }
-        // it(`should click event pass its own pointer and angular event`, () => {
-        // });
     });
     if (additionalTest) {
         describe('Additional Icon Test', () => {
