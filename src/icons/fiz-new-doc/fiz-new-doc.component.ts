@@ -31,6 +31,8 @@ export class FizNewDocComponent extends ShowHideIcon implements OnInit {
         const { _anime, shortLine, longLine, plus, paper } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         paper.nativeElement.style.opacity = 0;
         shortLine.nativeElement.style.opacity = 0;
         longLine.nativeElement.style.opacity = 0;

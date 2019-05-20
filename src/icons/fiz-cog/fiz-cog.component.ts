@@ -30,6 +30,9 @@ export class FizCogComponent extends ShowHideIcon implements OnInit {
         const { _anime, innerCircle, outerCircle } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
+
         nextTimeline.add({
             targets: innerCircle.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],

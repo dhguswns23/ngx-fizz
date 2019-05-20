@@ -30,6 +30,8 @@ export class FizOutComponent extends ShowHideIcon implements OnInit {
 
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         arrow.nativeElement.style.opacity = 0;
         arrow.nativeElement.style.transform = 'translateX(-10px)';
 

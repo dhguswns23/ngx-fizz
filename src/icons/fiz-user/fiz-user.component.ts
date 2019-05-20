@@ -35,6 +35,8 @@ export class FizUserComponent extends ShowHideIcon implements OnInit {
 
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         body.nativeElement.style.opacity = 0;
         body.nativeElement.style.transform = 'translateY(20px)';
         head.nativeElement.style.opacity = 0;

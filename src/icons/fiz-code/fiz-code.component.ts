@@ -32,6 +32,9 @@ export class FizCodeComponent extends ShowHideIcon implements OnInit {
     protected _show(duration) {
         const { _anime, leftTri, rightTri, centerBar } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
+
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         nextTimeline.add({
             targets: [leftTri.nativeElement, rightTri.nativeElement],
             strokeDashoffset: [_anime.setDashoffset, 0],

@@ -31,6 +31,8 @@ export class FizSearchComponent extends ShowHideIcon implements OnInit {
         const { glass, handle, reflectLine, reflectCircle } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         handle.nativeElement.style.transform = 'translateX(15px)';
         handle.nativeElement.style.transform = 'translateY(15px)';
         handle.nativeElement.style.opacity = 0;

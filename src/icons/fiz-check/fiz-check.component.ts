@@ -31,6 +31,8 @@ export class FizCheckComponent extends ShowHideIcon {
         const { polygon, pathStep } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         nextTimeline.add({
             targets: polygon.nativeElement,
             points: pathStep,

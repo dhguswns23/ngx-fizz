@@ -32,6 +32,8 @@ export class FizCrossComponent extends ShowHideIcon {
         const { path1, path2 } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         nextTimeline.add({
             targets: path1.nativeElement,
             translateX: 0,

@@ -30,6 +30,8 @@ export class FizImageComponent extends ShowHideIcon implements OnInit {
         const { _anime, frame, sun, mountain } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
 
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         sun.nativeElement.style.transform = 'scale(0)';
 
         nextTimeline.add({

@@ -4,7 +4,6 @@ import {
     OnInit,
     ViewChild,
 } from '@angular/core';
-import { animatePulse } from '../../animations';
 import {
     ShowHideIcon,
     ShowHideState,
@@ -29,6 +28,9 @@ export class FizHeartComponent extends ShowHideIcon implements OnInit {
     protected _show(duration) {
         const { _anime, heart } = this;
         const nextTimeline = this.initNextTimeline(ShowHideState.SHOW, duration);
+
+        /* Manually set isHide false since anime.js has bug which on begin is not called when duration is very short. */
+        this.isHide = false;
         nextTimeline.add({
             targets: heart.nativeElement,
             strokeDashoffset: [_anime.setDashoffset, 0],
@@ -44,11 +46,5 @@ export class FizHeartComponent extends ShowHideIcon implements OnInit {
             strokeDashoffset: [0, _anime.setDashoffset],
         });
         return this.endAnimation(ShowHideState.HIDE, nextTimeline);
-    }
-
-    public pulse(autoplay = true, duration: number = 100, count: number = 1) {
-        const { heart, easing } = this;
-
-        animatePulse(heart, duration, easing, count);
     }
 }
