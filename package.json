@@ -1,6 +1,20 @@
 {
   "name": "fizz",
-  "version": "0.0.1",
+  "version": "0.1.0-alpha",
+  "description": "Rich Animated icon set for AngularIO operated by animeJS engine",
+  "repository": "dhguswns23/fizz",
+  "homepage": "fizz.ohjun.me",
+  "author": "dhguswns23",
+  "license": "MIT",
+  "bugs": "https://github.com/dhguswns23/fizz/issues",
+  "keywords": [
+    "fizz",
+    "angular",
+    "SVG",
+    "icon",
+    "javascript",
+    "animation"
+  ],
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
