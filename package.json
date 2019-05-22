@@ -1,5 +1,5 @@
 {
-  "name": "fizz",
+  "name": "ngx-fizz",
   "version": "0.1.0-alpha",
   "description": "Rich Animated icon set for AngularIO operated by animeJS engine",
   "repository": "dhguswns23/fizz",
@@ -7,6 +7,9 @@
   "author": "dhguswns23",
   "license": "MIT",
   "bugs": "https://github.com/dhguswns23/fizz/issues",
+  "scripts": {
+    "packagr": "ng-packagr -p ng-package.json"
+  },
   "keywords": [
     "fizz",
     "angular",
@@ -21,5 +24,8 @@
   },
   "dependencies": {
     "animejs": "^3.0.1"
+  },
+  "devDependencies": {
+    "ng-packagr": "^5.2.0"
   }
 }

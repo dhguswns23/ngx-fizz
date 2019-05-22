@@ -72,7 +72,7 @@ On above example, we use `FizIconSetModule` to use `FizCheckIconComponent`. Howe
 For the case of `FizCheckIcon` , You just import `FizCheckIconModule` where you want to use.
 
 ```typescript
-import { FizCheckModule } from 'fizz';
+import { FizCheckModule } from ngx-fizz;
 
 @NgModule({
     imports: [
@@ -110,7 +110,7 @@ The reason why animation doesn't work as you intend is that every Fizz icons ani
 First, import `FizFlow` and `FizFlowFunction`.
 
 ```typescript
-import { FizFlow, FizFlowFunction } from 'fizz';
+import { FizFlow, FizFlowFunction } from 'ngx-fizz';
 ```
 
 Second, declare FizFlow object with an array of FizFlowFunction that contains sequence of animation. Here, FizFlowFunction constructor receives two arguments, first argument is animation target component and second is method name which return promise.
