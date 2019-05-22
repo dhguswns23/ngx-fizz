@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FizIconSetModule } from '../fiz-icon-set.module';
 import { FizCheckModule } from '../icons';
 import { FizChevronBottomModule } from '../icons';
 import { FizChevronLeftModule } from '../icons';
@@ -20,6 +19,7 @@ import { FizTrashBinModule } from '../icons';
 import { FizUserModule } from '../icons';
 import { FizzLogoModule } from '../icons';
 import { FizzComponent } from './fizz.component';
+import { FizIconSetModule } from '../fiz-icon-set.module';
 
 @NgModule({
   declarations: [FizzComponent],
@@ -45,6 +45,6 @@ import { FizzComponent } from './fizz.component';
       FizTrashBinModule,
       FizLockerModule,
   ],
-  exports: [FizzComponent]
+  exports: [FizzComponent],
 })
 export class FizzModule { }

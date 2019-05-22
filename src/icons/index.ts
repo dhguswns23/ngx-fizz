@@ -17,3 +17,23 @@ export * from './fiz-star/fiz-star.module';
 export * from './fiz-trash-bin/fiz-trash-bin.module';
 export * from './fiz-user/fiz-user.module';
 export * from './fizz/fizz-logo.module';
+
+export * from './fiz-check/fiz-check.component';
+export * from './fiz-chevron-bottom/fiz-chevron-bottom.component';
+export * from './fiz-chevron-right/fiz-chevron-right.component';
+export * from './fiz-chevron-left/fiz-chevron-left.component';
+export * from './fiz-chevron-top/fiz-chevron-top.component';
+export * from './fiz-code/fiz-code.component';
+export * from './fiz-cog/fiz-cog.component';
+export * from './fiz-cross/fiz-cross.component';
+export * from './fiz-edit-doc/fiz-edit-doc.component';
+export * from './fiz-heart/fiz-heart.component';
+export * from './fiz-image/fiz-image.component';
+export * from './fiz-locker/fiz-locker.component';
+export * from './fiz-out/fiz-out.component';
+export * from './fiz-new-doc/fiz-new-doc.component';
+export * from './fiz-search/fiz-search.component';
+export * from './fiz-star/fiz-star.component';
+export * from './fiz-trash-bin/fiz-trash-bin.component';
+export * from './fiz-user/fiz-user.component';
+

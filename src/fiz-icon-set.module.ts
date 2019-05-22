@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
-import { FizCheckModule } from './icons';
-import { FizChevronBottomModule } from './icons';
-import { FizChevronLeftModule } from './icons';
-import { FizChevronRightModule } from './icons';
-import { FizChevronTopModule } from './icons';
-import { FizCodeModule } from './icons';
-import { FizCogModule } from './icons';
-import { FizCrossModule } from './icons';
-import { FizEditDocModule } from './icons';
-import { FizHeartModule } from './icons';
-import { FizImageModule } from './icons';
-import { FizLockerModule } from './icons';
-import { FizNewDocModule } from './icons';
-import { FizOutModule } from './icons';
-import { FizSearchModule } from './icons';
-import { FizStarModule } from './icons';
-import { FizTrashBinModule } from './icons';
-import { FizUserModule } from './icons';
-import { FizzLogoModule } from './icons';
+import { FizCheckModule } from './icons/fiz-check/fiz-check.module';
+import { FizChevronBottomModule } from './icons/fiz-chevron-bottom/fiz-chevron-bottom.module';
+import { FizChevronLeftModule } from './icons/fiz-chevron-left/fiz-chevron-left.module';
+import { FizChevronRightModule } from './icons/fiz-chevron-right/fiz-chevron-right.module';
+import { FizChevronTopModule } from './icons/fiz-chevron-top/fiz-chevron-top.module';
+import { FizCodeModule } from './icons/fiz-code/fiz-code.module';
+import { FizCogModule } from './icons/fiz-cog/fiz-cog.module';
+import { FizCrossModule } from './icons/fiz-cross/fiz-cross.module';
+import { FizEditDocModule } from './icons/fiz-edit-doc/fiz-edit-doc.module';
+import { FizHeartModule } from './icons/fiz-heart/fiz-heart.module';
+import { FizImageModule } from './icons/fiz-image/fiz-image.module';
+import { FizLockerModule } from './icons/fiz-locker/fiz-locker.module';
+import { FizNewDocModule } from './icons/fiz-new-doc/fiz-new-doc.module';
+import { FizOutModule } from './icons/fiz-out/fiz-out.module';
+import { FizSearchModule } from './icons/fiz-search/fiz-search.module';
+import { FizStarModule } from './icons/fiz-star/fiz-star.module';
+import { FizTrashBinModule } from './icons/fiz-trash-bin/fiz-trash-bin.module';
+import { FizUserModule } from './icons/fiz-user/fiz-user.module';
+// import { FizzLogoModule } from './icons';
 
 @NgModule({
     imports: [],
@@ -32,7 +32,7 @@ import { FizzLogoModule } from './icons';
         FizCogModule,
         FizEditDocModule,
         FizHeartModule,
-        FizzLogoModule,
+        // FizzLogoModule,
         FizStarModule,
         FizImageModule,
         FizOutModule,
