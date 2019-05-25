@@ -33,7 +33,7 @@ If your project is on angular 7 or later, you can easily use Fizz. Also we are g
 You can install Fizz very easily and quick.
 
 ```bash
-$ npm intsall fizz --save
+$ npm intsall ngx-fizz --save
 ```
 
 You just install Fizz using npm. Now, we are all set to use Fizz!
@@ -63,7 +63,7 @@ Second, insert Fizz tag to angular template.
 <fiz-check [state]=’ShowHideState.SHOW’></fiz-check>
 ```
 
-You can check availabe [Icons](http://fizz.ohjun.me/icons) and its @Inputs, @Outputs, and @Methods.
+You can check available [Icons](http://fizz.ohjun.me/icons) and its @Inputs, @Outputs, and @Methods.
 
 ### Separate Import
 
