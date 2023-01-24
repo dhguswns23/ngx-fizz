@@ -31,6 +31,6 @@
     "animejs": "^3.0.1"
   },
   "devDependencies": {
-    "ng-packagr": "^5.2.0"
+    "ng-packagr": "^10.1.1"
   }
 }
