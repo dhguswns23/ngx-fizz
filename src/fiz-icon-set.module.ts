@@ -19,6 +19,45 @@ import { FizTrashBinModule } from './icons/fiz-trash-bin/fiz-trash-bin.module';
 import { FizUserModule } from './icons/fiz-user/fiz-user.module';
 // import { FizzLogoModule } from './icons';
 
+import { FizCheckComponent } from './icons/fiz-check/fiz-check.component';
+import { FizChevronBottomComponent } from './icons/fiz-chevron-bottom/fiz-chevron-bottom.component';
+import { FizChevronLeftComponent } from './icons/fiz-chevron-left/fiz-chevron-left.component';
+import { FizChevronRightComponent } from './icons/fiz-chevron-right/fiz-chevron-right.component';
+import { FizChevronTopComponent } from './icons/fiz-chevron-top/fiz-chevron-top.component';
+import { FizCodeComponent } from './icons/fiz-code/fiz-code.component';
+import { FizCogComponent } from './icons/fiz-cog/fiz-cog.component';
+import { FizCrossComponent } from './icons/fiz-cross/fiz-cross.component';
+import { FizEditDocComponent } from './icons/fiz-edit-doc/fiz-edit-doc.component';
+import { FizHeartComponent } from './icons/fiz-heart/fiz-heart.component';
+import { FizImageComponent } from './icons/fiz-image/fiz-image.component';
+import { FizLockerComponent } from './icons/fiz-locker/fiz-locker.component';
+import { FizNewDocComponent } from './icons/fiz-new-doc/fiz-new-doc.component';
+import { FizOutComponent } from './icons/fiz-out/fiz-out.component';
+import { FizSearchComponent } from './icons/fiz-search/fiz-search.component';
+import { FizStarComponent } from './icons/fiz-star/fiz-star.component';
+import { FizTrashBinComponent } from './icons/fiz-trash-bin/fiz-trash-bin.component';
+import { FizUserComponent } from './icons/fiz-user/fiz-user.component';
+
+const iconComponents = [
+    FizCheckComponent,
+    FizCodeComponent,
+    FizChevronBottomComponent,
+    FizChevronLeftComponent,
+    FizChevronRightComponent,
+    FizChevronTopComponent,
+    FizCogComponent,
+    FizCrossComponent,
+    FizEditDocComponent,
+    FizHeartComponent,
+    FizImageComponent,
+    FizLockerComponent,
+    FizNewDocComponent,
+    FizOutComponent,
+    FizSearchComponent,
+    FizStarComponent,
+    FizTrashBinComponent,
+    FizUserComponent,
+];
 @NgModule({
     imports: [],
     exports: [
@@ -43,5 +82,8 @@ import { FizUserModule } from './icons/fiz-user/fiz-user.module';
         FizLockerModule,
     ],
     declarations: [],
+    entryComponents: [
+      ...iconComponents,
+    ],
 })
 export class FizIconSetModule {}
